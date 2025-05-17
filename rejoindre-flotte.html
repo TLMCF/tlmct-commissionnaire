@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <link rel="manifest" href="manifest.json">
+<script src="service-worker.js"></script>
+
+  <title>Rejoindre notre flotte | TLMCF</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(reg => console.log('Service Worker enregistré'))
+      .catch(err => console.error('Erreur Service Worker :', err));
+  }
+</script>
+
+</head>
+<body>
+
+<header>
+  <h1>TLMCF Transports</h1>
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="services.html">Services</a>
+    <a href="a-propos.html">À propos</a>
+    <a href="contact.html">Contact</a>
+    <a href="rejoindre-flotte.html">Rejoindre notre flotte</a>
+  </nav>
+</header>
+
+<section>
+  <h3>Vous êtes transporteur ? Intégrez notre réseau</h3>
+  <div class="card">
+    <form action="https://formspree.io/f/TON_ID" method="POST" enctype="multipart/form-data">
+
+      <label for="societe">Nom de la société :</label><br />
+      <input type="text" id="societe" name="societe" required><br /><br />
+
+      <label for="nom">Nom du représentant :</label><br />
+      <input type="text" id="nom" name="nom" required><br /><br />
+
+      <label for="email">Adresse e-mail :</label><br />
+      <input type="email" id="email" name="email" required><br /><br />
+
+      <label for="telephone">Téléphone :</label><br />
+      <input type="tel" id="telephone" name="telephone" required><br /><br />
+
+      <label for="type-vehicule">Type(s) de véhicule(s) :</label><br />
+      <select id="type-vehicule" name="type-vehicule[]" multiple required>
+        <option value="VL">Véhicule léger (-3.5T)</option>
+        <option value="PL">Poids lourd</option>
+        <option value="Frigorifique">Frigorifique</option>
+        <option value="Plateau">Plateau</option>
+        <option value="Citerne">Citerne</option>
+        <option value="Benne">Benne</option>
+        <option value="Autre">Autre</option>
+      </select><br /><br />
+
+      <label for="zone">Zone(s) d’intervention :</label><br />
+      <input type="text" id="zone" name="zone" placeholder="Ex : France, Europe de l’Ouest, etc." required><br /><br />
+
+      <label for="experience">Années d’expérience en transport :</label><br />
+      <input type="number" id="experience" name="experience" min="0" max="50" required><br /><br />
+
+      <label for="documents">Documents à joindre (Kbis, assurance, licence...) :</label><br />
+      <input type="file" id="documents" name="documents" multiple><br /><br />
+
+      <label for="message">Message complémentaire :</label><br />
+      <textarea id="message" name="message" rows="6"></textarea><br /><br />
+
+      <button type="submit">Envoyer ma candidature</button>
+
+    </form>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 TLMCF Transports – Commissionnaire de transport
+</footer>
+
+</body>
+</html>

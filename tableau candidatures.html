@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <link rel="manifest" href="manifest.json">
+<script src="service-worker.js"></script>
+  <title>Gestion des Candidatures | TLMCF</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(reg => console.log('Service Worker enregistré'))
+      .catch(err => console.error('Erreur Service Worker :', err));
+  }
+</script>
+
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #f5f5f5;
+    }
+    tr:nth-child(even) {
+      background-color: #fafafa;
+    }
+    input[type="search"] {
+      padding: 8px;
+      width: 300px;
+      margin-top: 20px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>TLMCF - Gestion des Candidatures</h1>
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="rejoindre-flotte.html">Formulaire</a>
+    <a href="candidatures.html">Candidatures</a>
+  </nav>
+</header>
+
+<section>
+  <h3>Candidatures des transporteurs</h3>
+  <input type="search" id="searchInput" placeholder="Rechercher une société...">
+  
+  <table id="candidatureTable">
+    <thead>
+      <tr>
+        <th>Société</th>
+        <th>Nom</th>
+        <th>Email</th>
+        <th>Téléphone</th>
+        <th>Véhicules</th>
+        <th>Zone</th>
+        <th>Expérience</th>
+        <th>Statut</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>TransLog</td>
+        <td>Jean Martin</td>
+        <td>jm@translog.fr</td>
+        <td>0601020304</td>
+        <td>Frigorifique</td>
+        <td>France</td>
+        <td>8 ans</td>
+        <td>En attente</td>
+      </tr>
+      <!-- Lignes à ajouter dynamiquement ou manuellement -->
+    </tbody>
+  </table>
+</section>
+
+<script>
+  document.getElementById("searchInput").addEventListener("keyup", function() {
+    var filter = this.value.toLowerCase();
+    var rows = document.querySelectorAll("#candidatureTable tbody tr");
+    rows.forEach(function(row) {
+      var text = row.textContent.toLowerCase();
+      row.style.display = text.includes(filter) ? "" : "none";
+    });
+  });
+</script>
+
+<footer>
+  <p>&copy; 2025 TLMCF Transports</p>
+</footer>
+
+</body>
+</html>
