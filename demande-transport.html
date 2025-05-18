@@ -297,6 +297,10 @@
                         <label for="fichier_joint">Joindre un fichier (Ex: packing list, photo - max 5Mo) :</label>
                         <input type="file" id="fichier_joint" name="fichier_joint" accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.png">
                     </div>
+                    <div>
+                        <input type="checkbox" id="perissable" name="specificites[]" value="perissable">
+                        <label for="contrat">je certifie avoir lu et accepté le contrat de transport Commissionnaire</label>
+                    </div>
                 </fieldset>
 
                 <button type="submit">Envoyer ma demande de devis</button>
@@ -306,8 +310,8 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 Votre Nom d'Entreprise - Commissionnaire de Transport. Tous droits réservés.</p>
-        <p><a href="mentions-legales.html">Mentions Légales</a> | <a href="politique-confidentialite.html">Politique de confidentialité</a></p>
+        <p>&copy; 2025 TLMCT - Commissionnaire de Transport. Tous droits réservés.</p>
+        <a href="mention-legales.html">Mentions Légales</a> | <a href="politique-confidentialite.html">Politique de confidentialité</p>
     </footer>
 
     <script>
@@ -360,6 +364,7 @@
                 }
             });
         }
+
     </script>
 </body>
 </html>
